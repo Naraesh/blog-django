@@ -1,0 +1,22 @@
+{% extends 'index.html'%}
+{%load static %}
+{% block content%}
+{% include 'navbar.html' %}
+<div>
+    <form action="{% url 'content'%}" method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Post Your Knowledge</legend>
+            <table>
+                <tr> <td>Author Name</td><td><input type="text" placeholder="author name" name="uname"> </td> </tr>
+                <tr> <td>Title</td><td> <input type="text" placeholder="post_title" name="post_title"></td></tr>
+                <tr> <td>Content</td><td><textarea class="textarea" name="post_content" placeholder="Type here.."></textarea></td></tr>
+                <tr> <td>Date</td><td>  <input type="date" name="date"></td></tr>
+                <tr> <td>Profile Link</td><td><input type="text" name="profile_link" placeholder="user profile link"></td></tr>
+                <tr><td colspan="2"> <button type="submit">Post</button></td></tr>
+            </table>
+      </fieldset>
+       
+    </form>
+</div>
+{% endblock %}

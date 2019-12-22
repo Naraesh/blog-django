@@ -1,0 +1,20 @@
+{% extends 'index.html'%}
+{%load static %}
+
+{% block content%}
+{% include 'navbar.html' %}
+{% block title%} <title>Home</title>{%endblock%}
+
+<div>
+    {% for i in posts %}
+    <fieldset class="fieldset">
+        <legend style="color:#e48787;font-size:20px;font-weight:bold">{{i.post_title}}</legend>
+       <p style=" font-size:12px;">{{i.date_published}}</p>
+       <p  style="border: 1px solid red; padding:12px;">{{i.post_content}}</p>
+       <p style=" font-size:13px;">Posted by <span style=" color:#333;font-weight: 700;">{{i.name}}</span></p>
+       <p style=" font-size:13px;">Profile link <a href='#'>{{i.user_profile_link}} </a></p>
+        
+</fieldset>
+</div>
+    {%endfor%}
+{% endblock %}
